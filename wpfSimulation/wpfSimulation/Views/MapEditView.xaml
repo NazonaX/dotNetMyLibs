@@ -1,0 +1,69 @@
+﻿<Window x:Class="wpfSimulation.Views.MapEditView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfSimulation.Views"
+        xmlns:loc2="clr-namespace:Localiztion;assembly=Localiztion"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:vm="clr-namespace:wpfSimulation.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Simulator" Height="569.955" Width="912.5">
+
+    <Window.DataContext>
+        <vm:MapEditViewModels/>
+    </Window.DataContext>
+
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="123">
+                <MenuItem Header="qwe"></MenuItem>
+                <MenuItem Header="asd"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="456">
+
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom" Margin="0,0,-0.5,0" >
+            <TextBlock Text="{Binding StatusString}"/>
+        </StatusBar>
+        <Grid DockPanel.Dock="Top" Margin="0,0,-0.5,0"
+              VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Button x:Name="Btn_Change" Content="{x:Static loc2:Resource.EditMap_ModifySelectedMapItemsButton}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="128" 
+                    Command="{Binding ExecuteModifyMapItemCommand}" />
+            <Button Content="{x:Static loc2:Resource.EditMap_SelectMapItems}" HorizontalAlignment="Left" Margin="145,40,0,0" VerticalAlignment="Top" Width="75"
+                    Command="{Binding ExecuteCanSelectCommand}"/>
+            <Button Content="{x:Static loc2:Resource.EditMap_CancelSelect}" HorizontalAlignment="Left" Margin="225,40,0,0" VerticalAlignment="Top" Width="75"
+                    Command="{Binding ExecuteCancelSelectCommand}"/>
+            <Button Content="{x:Static loc2:Resource.EditMap_SaveMap}" Margin="0,40,10,0" VerticalAlignment="Top"
+                    Command="{Binding ExecuteSaveMapCommand}" HorizontalAlignment="Right" Width="76"/>
+            <Button Content="{x:Static loc2:Resource.EditMap_ModifyGoodsTypesButton}" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="128"
+                    Command="{Binding ExecuteModifyStaticGoodsTypesCommand}"/>
+            <Button Content="{x:Static loc2:Resource.EditMap_CreateMapButton}" Margin="0,40,91,0" VerticalAlignment="Top"
+                    Command="{Binding ExecuteCreateMapCommand}" HorizontalAlignment="Right" Width="76"/>
+            <Button Content="{x:Static loc2:Resource.EditStorage_BT_Modify}" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Width="155"
+                    Command="{Binding ExecuteModifySelectedStorageCommand}" />
+            <Button Content="{x:Static loc2:Resource.EditMap_ModifyMapInformation}" Margin="0,40,172,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="124"
+                    Command="{Binding ExecuteModifyMapInformationCommand}"/>
+            <Button Content="{x:Static loc2:Resource.EditMap_BT_AddStoreRequests}" 
+                    Margin="0,10,10,0" VerticalAlignment="Top"
+                    Command="{Binding ExecuteAddStoreRequestsCommand}" HorizontalAlignment="Right" Width="140"/>
+            <Button Content="{x:Static loc2:Resource.EditMap_BT_AddTakeOutRequests}" 
+                    Margin="0,10,156,0" VerticalAlignment="Top"
+                    Command="{Binding ExecuteAddTakeOutRequestsCommand}" HorizontalAlignment="Right" Width="140"/>
+
+        </Grid>
+        <ListBox DockPanel.Dock="Left"
+            Style="{DynamicResource LayersStyle}" Margin="10,5,0,9.5" ItemsSource="{Binding Layers}"
+            x:Name="LayerListBox" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="128" />
+
+        <!--点击右侧层树，仅需重新装载后台对应的数据即可。因此此处一个ScrollViewer即可。-->
+        <ScrollViewer Style="{StaticResource GridBasedMapScrollLayer}" Content="{Binding .}"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,8,9.5,9.5"/>
+
+
+    </DockPanel>
+
+</Window>

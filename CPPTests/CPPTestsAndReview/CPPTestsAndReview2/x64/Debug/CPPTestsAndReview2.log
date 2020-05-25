@@ -1,0 +1,4 @@
+﻿  CPPTestsAndReview2.cpp
+d:\dotnetproj\dotnetmylibs\cpptests\cpptestsandreview\cpptestsandreview2\cpptestsandreview2.cpp(14): warning C4200: nonstandard extension used: zero-sized array in struct/union
+  d:\dotnetproj\dotnetmylibs\cpptests\cpptestsandreview\cpptestsandreview2\cpptestsandreview2.cpp(14): note: This member will be ignored by a defaulted constructor or copy/move assignment operator
+  CPPTestsAndReview2.vcxproj -> D:\dotNetProj\dotNetMyLibs\CPPTests\CPPTestsAndReview\x64\Debug\CPPTestsAndReview2.exe

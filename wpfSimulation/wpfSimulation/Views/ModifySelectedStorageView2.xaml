@@ -1,0 +1,38 @@
+﻿<Window x:Class="wpfSimulation.Views.ModifySelectedStorageView2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfSimulation.Views"
+        xmlns:loc2="clr-namespace:Localiztion;assembly=Localiztion"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="ModifySelectedStorage" Height="349.312" Width="302.599"
+        ResizeMode="NoResize">
+
+
+    <Grid>
+        <Label Content="{x:Static loc2:Resource.ModifySelectedStorage_LB_SetGoodTypes}" HorizontalAlignment="Left" Margin="152,16,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="14,41,0,0" TextWrapping="Wrap" 
+                 Text="{Binding OrderCode, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" />
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="14,99,0,0" TextWrapping="Wrap" 
+                 Text="{Binding GoodName, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="14,157,0,0" TextWrapping="Wrap" 
+                 Text="{Binding GoodCode, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="14,219,0,0" TextWrapping="Wrap" 
+                 Text="{Binding GoodSpecification, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="14,277,0,0" TextWrapping="Wrap" 
+                 Text="{Binding GoodCount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{x:Static loc2:Resource.ModifySelectedStorage_LB_GoodCount}" HorizontalAlignment="Left" Margin="12,253,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static loc2:Resource.ModifySelectedStorage_LB_GoodSpecification}" HorizontalAlignment="Left" Margin="12,193,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static loc2:Resource.ModifySelectedStorage_LB_GoodCode}" HorizontalAlignment="Left" Margin="12,133,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static loc2:Resource.ModifySelectedStorage_LB_GoodName}" HorizontalAlignment="Left" Margin="12,73,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static loc2:Resource.ModifySelectedStorage_LB_OrderCode}" HorizontalAlignment="Left" Margin="12,15,0,0" VerticalAlignment="Top"/>
+        <Button Content="{x:Static loc2:Resource.BT_Confirm}" HorizontalAlignment="Left" Margin="156,277,0,0" 
+                VerticalAlignment="Top" Width="118" Height="24" IsDefault="True"
+                Command="{Binding ExecuteModifySelectedStorageCommand}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="156,41,0,0" VerticalAlignment="Top" Width="118" Height="22"
+                  ItemsSource="{Binding GoodTypesList}" SelectedIndex="{Binding SelectedGoodType}"/>
+
+    </Grid>
+</Window>

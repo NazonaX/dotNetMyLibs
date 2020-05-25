@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddTakeOutRequest_IllegalCount_MSG" xml:space="preserve">
+    <value>Illegal storage count, the count to be take out should be:</value>
+  </data>
+  <data name="Alert" xml:space="preserve">
+    <value>Alert</value>
+  </data>
+  <data name="BT_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="BT_Rest" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="BT_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CreateMap_BT_ConfirmAndCreate" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateMap_Complete" xml:space="preserve">
+    <value>Map Create Complete!</value>
+  </data>
+  <data name="CreateMap_LB_ColumnCount" xml:space="preserve">
+    <value>ColumnCount: </value>
+  </data>
+  <data name="CreateMap_LB_LayerCount" xml:space="preserve">
+    <value>LayerCount: </value>
+  </data>
+  <data name="CreateMap_LB_RackCount" xml:space="preserve">
+    <value>RackCount: </value>
+  </data>
+  <data name="EditMap_BT_AddStoreRequests" xml:space="preserve">
+    <value>Store Storages</value>
+  </data>
+  <data name="EditMap_BT_AddTakeOutRequests" xml:space="preserve">
+    <value>Take Out Storages</value>
+  </data>
+  <data name="EditMap_CancelSelect" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="EditMap_CreateMapButton" xml:space="preserve">
+    <value>Create Map</value>
+  </data>
+  <data name="EditMap_ModifyGoodsTypesButton" xml:space="preserve">
+    <value>Modify GoodsTypes</value>
+  </data>
+  <data name="EditMap_ModifyMapInformation" xml:space="preserve">
+    <value>Modify Map Details</value>
+  </data>
+  <data name="EditMap_ModifySelectedMapItemsButton" xml:space="preserve">
+    <value>Modify Selected Grid</value>
+  </data>
+  <data name="EditMap_SaveMap" xml:space="preserve">
+    <value>Save Map</value>
+  </data>
+  <data name="EditMap_SaveMap_Msg_Complete" xml:space="preserve">
+    <value>Map Saving Complete!</value>
+  </data>
+  <data name="EditMap_SelectMapItems" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="EditStorage_BT_Modify" xml:space="preserve">
+    <value>Modify Selected Storage</value>
+  </data>
+  <data name="GoodsTypes_BT_Add" xml:space="preserve">
+    <value>Add the Type</value>
+  </data>
+  <data name="GoodsTypes_BT_Delete" xml:space="preserve">
+    <value>Delete the Selected Type</value>
+  </data>
+  <data name="GoodsTypes_BT_Modify" xml:space="preserve">
+    <value>Modify the Selected Type</value>
+  </data>
+  <data name="GoodsTypes_BT_SaveAll" xml:space="preserve">
+    <value>Save All</value>
+  </data>
+  <data name="GoodsTypes_LST_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="GoodsTypes_Msg_SaveComplete" xml:space="preserve">
+    <value>Saving Complete!</value>
+  </data>
+  <data name="MapInformation_GB_ChildShuttles" xml:space="preserve">
+    <value>Child Shuttles</value>
+  </data>
+  <data name="MapInformation_GB_Lifter" xml:space="preserve">
+    <value>Lifter</value>
+  </data>
+  <data name="MapInformation_GB_MapGapLength" xml:space="preserve">
+    <value>GAP of Grids</value>
+  </data>
+  <data name="MapInformation_GB_ParentShuttles" xml:space="preserve">
+    <value>Parent Shuttles</value>
+  </data>
+  <data name="MapInformation_LB_Acceleration" xml:space="preserve">
+    <value>Acceleration:</value>
+  </data>
+  <data name="MapInformation_LB_Deceleration" xml:space="preserve">
+    <value>Deceleration:</value>
+  </data>
+  <data name="MapInformation_LB_GridColumnGap" xml:space="preserve">
+    <value>GAP along Column^:</value>
+  </data>
+  <data name="MapInformation_LB_GridLayerGap" xml:space="preserve">
+    <value>GAP between Layers:</value>
+  </data>
+  <data name="MapInformation_LB_GridRackGap" xml:space="preserve">
+    <value>GAP along Rack&gt;:</value>
+  </data>
+  <data name="MapInformation_LB_MaxSpeed" xml:space="preserve">
+    <value>Max Speed:</value>
+  </data>
+  <data name="MapItems_Input" xml:space="preserve">
+    <value>Input End</value>
+  </data>
+  <data name="Mapitems_OutPut" xml:space="preserve">
+    <value>Output End</value>
+  </data>
+  <data name="MapItems_PleaseSelect" xml:space="preserve">
+    <value>Please Select</value>
+  </data>
+  <data name="MapItems_Railway" xml:space="preserve">
+    <value>Railway for Parent Shuttles</value>
+  </data>
+  <data name="MapItems_Storage" xml:space="preserve">
+    <value>Storage</value>
+  </data>
+  <data name="MapItems_Unavalible" xml:space="preserve">
+    <value>Unavailable</value>
+  </data>
+  <data name="ModifySelectedMapItem_AskForQuit" xml:space="preserve">
+    <value>The information of Available goods types of selected grids will not be changed if quit, CONFIRM to QUIT?</value>
+  </data>
+  <data name="ModifySelectedMapItem_AskForSave" xml:space="preserve">
+    <value>You have not confirm the modification yet, CONFIRM the changes?</value>
+  </data>
+  <data name="ModifySelectedMapItem_BT_AddGT" xml:space="preserve">
+    <value>&gt;&gt;Add&gt;&gt;</value>
+  </data>
+  <data name="ModifySelectedMapItem_BT_DeleteGT" xml:space="preserve">
+    <value>&lt;&lt;Delete&lt;&lt;</value>
+  </data>
+  <data name="ModifySelectedMapItem_CB_ApplyToAllLayer" xml:space="preserve">
+    <value>Apply the same modification to all map items where at the same place of all layers.</value>
+  </data>
+  <data name="ModifySelectedMapItem_GoodsTypes_Complete" xml:space="preserve">
+    <value>Modify Complete!</value>
+  </data>
+  <data name="ModifySelectedMapItem_LB_AvailableTypes" xml:space="preserve">
+    <value>Available Types of the Map Items</value>
+  </data>
+  <data name="ModifySelectedMapItem_LB_GoodsTypesList" xml:space="preserve">
+    <value>Select Goods Types</value>
+  </data>
+  <data name="ModifySelectedMapItem_LB_GridType" xml:space="preserve">
+    <value>Please define a Grid Type</value>
+  </data>
+  <data name="ModifySelectedMapItem_Msg_AlertForGoodsInfo" xml:space="preserve">
+    <value>There include some Goods information in the selected map items, these informations will be DISAPPEAR after modification!</value>
+  </data>
+  <data name="ModifySelectedStorage_LB_GoodCode" xml:space="preserve">
+    <value>The Code of Good:</value>
+  </data>
+  <data name="ModifySelectedStorage_LB_GoodCount" xml:space="preserve">
+    <value>The Count of Good:</value>
+  </data>
+  <data name="ModifySelectedStorage_LB_GoodName" xml:space="preserve">
+    <value>The Name of Good:</value>
+  </data>
+  <data name="ModifySelectedStorage_LB_GoodSpecification" xml:space="preserve">
+    <value>The Specification:</value>
+  </data>
+  <data name="ModifySelectedStorage_LB_GoodTypes" xml:space="preserve">
+    <value>Select Good Types</value>
+  </data>
+  <data name="ModifySelectedStorage_LB_OrderCode" xml:space="preserve">
+    <value>The Code of Order:</value>
+  </data>
+  <data name="ModifySelectedStorage_LB_SetGoodTypes" xml:space="preserve">
+    <value>The Types of Good</value>
+  </data>
+  <data name="ModifySelectedStorage_MB_ConfirmTakeOut" xml:space="preserve">
+    <value>Comfirm to Take out:</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+</root>

@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2011
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpfSimulation", "wpfSimulation\wpfSimulation.csproj", "{19E4DF2E-4622-4118-BBF4-3732AE45217E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{8E8AD9BC-DEAD-44A5-9E79-946AB29CCC92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{613CE007-6B44-47E1-A1DA-AAED474928CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Localiztion", "Localiztion\Localiztion.csproj", "{63D65C61-769E-4AFC-BEA9-0237B3A0F335}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19E4DF2E-4622-4118-BBF4-3732AE45217E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E4DF2E-4622-4118-BBF4-3732AE45217E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E4DF2E-4622-4118-BBF4-3732AE45217E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E4DF2E-4622-4118-BBF4-3732AE45217E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E8AD9BC-DEAD-44A5-9E79-946AB29CCC92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E8AD9BC-DEAD-44A5-9E79-946AB29CCC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E8AD9BC-DEAD-44A5-9E79-946AB29CCC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E8AD9BC-DEAD-44A5-9E79-946AB29CCC92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{613CE007-6B44-47E1-A1DA-AAED474928CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613CE007-6B44-47E1-A1DA-AAED474928CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613CE007-6B44-47E1-A1DA-AAED474928CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613CE007-6B44-47E1-A1DA-AAED474928CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63D65C61-769E-4AFC-BEA9-0237B3A0F335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63D65C61-769E-4AFC-BEA9-0237B3A0F335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63D65C61-769E-4AFC-BEA9-0237B3A0F335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63D65C61-769E-4AFC-BEA9-0237B3A0F335}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_ResXSortingComparison = CurrentCulture
+		SolutionGuid = {D28BC69C-567C-4E29-8D1D-8F94D9FAD808}
+		RESX_NeutralResourcesLanguage = zh-CN
+		RESX_SaveFilesImmediatelyUponChange = False
+		RESX_SortFileContentOnSave = True
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,84 @@
+﻿<Window x:Class="wpfSimulation.Views.ModifyMapInformationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfSimulation.Views"
+        xmlns:loc2="clr-namespace:Localiztion;assembly=Localiztion"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Title="ModifyMapInformation" Height="300" Width="687">
+    <Grid>
+
+        <GroupBox Header="{x:Static loc2:Resource.MapInformation_GB_MapGapLength}" HorizontalAlignment="Left" Height="207" Margin="10,10,0,0" 
+                  VerticalAlignment="Top" Width="160">
+            <DockPanel>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_GridRackGap}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23"  TextWrapping="Wrap" Text="{Binding GapAlongRack}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5" />
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_GridColumnGap}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23" TextWrapping="Wrap" Text="{Binding GapAlongColumn}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_GridLayerGap}" HorizontalAlignment="Left"  VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23"  TextWrapping="Wrap" Text="{Binding GapBetweenLayers}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+            </DockPanel>
+        </GroupBox>
+        <GroupBox Header="{x:Static loc2:Resource.MapInformation_GB_ParentShuttles}" HorizontalAlignment="Left" Height="207" Margin="175,10,0,0" 
+                  VerticalAlignment="Top" Width="160">
+            <DockPanel>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_MaxSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23"  TextWrapping="Wrap" Text="{Binding PSMaxSpeed}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_Acceleration}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23" TextWrapping="Wrap" Text="{Binding PSAcceleration}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_Deceleration}" HorizontalAlignment="Left"  VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23"  TextWrapping="Wrap" Text="{Binding PSDeceleration}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+            </DockPanel>
+        </GroupBox>
+        <GroupBox Header="{x:Static loc2:Resource.MapInformation_GB_ChildShuttles}" HorizontalAlignment="Left" Height="207" Margin="340,10,0,0" VerticalAlignment="Top" Width="160">
+            <DockPanel>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_MaxSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23"  TextWrapping="Wrap" Text="{Binding CSMaxSpeed}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_Acceleration}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23" TextWrapping="Wrap" Text="{Binding CSAcceleration}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_Deceleration}" HorizontalAlignment="Left"  VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23"  TextWrapping="Wrap" Text="{Binding CSDeceleration}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+            </DockPanel>
+        </GroupBox>
+        <GroupBox Header="{x:Static loc2:Resource.MapInformation_GB_Lifter}" HorizontalAlignment="Left" Height="207" Margin="505,10,0,0" VerticalAlignment="Top" Width="160">
+            <DockPanel>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_MaxSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23"  TextWrapping="Wrap" Text="{Binding LMaxSpeed}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_Acceleration}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23" TextWrapping="Wrap" Text="{Binding LAcceleration}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+                <Label Content="{x:Static loc2:Resource.MapInformation_LB_Deceleration}" HorizontalAlignment="Left"  VerticalAlignment="Top"
+                       DockPanel.Dock="Top" Margin="10,5,0,0"/>
+                <TextBox Height="23"  TextWrapping="Wrap" Text="{Binding LDeceleration}" HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,18,5"/>
+            </DockPanel>
+        </GroupBox>
+        <Button Content="{x:Static loc2:Resource.BT_Save}" HorizontalAlignment="Left" Margin="505,224,0,0" IsDefault="True"
+                VerticalAlignment="Top" Width="160" Height="29" Command="{Binding ExecuteMapInformationSaveCommand}"/>
+
+    </Grid>
+</Window>
