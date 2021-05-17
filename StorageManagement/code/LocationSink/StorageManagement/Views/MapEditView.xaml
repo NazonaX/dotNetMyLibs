@@ -1,0 +1,184 @@
+﻿<Window x:Class="wpfSimulation.Views.MapEditView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfSimulation.Views"
+        xmlns:loc2="clr-namespace:Localiztion;assembly=Localiztion"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+       xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:vm="clr-namespace:wpfSimulation.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="库位管理系统" Height="569.955" Width="912.5">
+    <Window.DataContext>
+        <vm:MapEditViewModels/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style x:Key="BtnImageStyle1" TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border  Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" BorderBrush="AliceBlue" BorderThickness="4">
+                            <Image x:Name="Img1" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Images/1.png" Stretch="None"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="ToolTip" Value="{x:Static loc2:Resource.BT_Hand}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BtnImageStyle2" TargetType="Button">
+            <Setter Property="Cursor" Value="Arrow"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Image x:Name="Img2" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Images/2.png" Stretch="None"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="ToolTip" Value="{x:Static loc2:Resource.BT_Arrow }"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Gesture="Alt+S" Command="{Binding ExecuteCanSelectCommand}"></KeyBinding>
+        <KeyBinding Gesture="Alt+C" Command="{Binding ExecuteCancelSelectCommand}"></KeyBinding>
+        <KeyBinding Gesture="Ctrl+C" Command="{Binding ExecuteConnectTwoMapItemsCommand}"/>
+        <KeyBinding Gesture="Ctrl+D" Command="{Binding ExecuteDeleteSpecialConnectionCommand}"/>
+        <KeyBinding Gesture="Ctrl+Alt+A" Command="{Binding ExecuteTestAddStorageCommand}"/>
+        <KeyBinding Gesture="Ctrl+S" Command="{Binding ExecuteModifySelectedStorageCommand}"/>
+        <KeyBinding Gesture="Ctrl+R" Command="{Binding ExecuteDeleteSelectedGoods}"/>
+    </Window.InputBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <Menu.Resources>
+                <Style x:Key="MenuListStyle" TargetType="MenuItem">
+                    <Setter Property="IsCheckable" Value="True"/>
+                    <Setter  Property="Header" Value="{Binding Text}"/>
+                    <Setter  Property="Command" Value="{Binding ExecuteLayerCommand}"/>
+                    <Setter Property="CommandParameter" Value="{Binding Data}"/>
+                    <Setter Property="IsChecked" Value="{Binding Checked}"/>
+                </Style>
+                <Style x:Key="ListBoxItemStyle" TargetType="ListBox">
+                    <Setter Property="ItemTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type vm:SingleGridMapItemViewModels}">
+                                <Border Width="{Binding Width}" Height="{Binding Height}"  BorderThickness="1" BorderBrush="Black"
+                                Background="{Binding Color}" ToolTip="TODO:Extend message here..">
+                                    <TextBlock  Text="{Binding Text}"/>
+                                </Border>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                </Style>
+            </Menu.Resources>
+
+            <MenuItem Header="{x:Static loc2:Resource.Menu_Map}">
+                <MenuItem Header="{x:Static loc2:Resource.EditMap_CreateMapButton}"
+                          Command="{Binding ExecuteCreateMapCommand}"></MenuItem>
+                <!--all operations will save map as default-->
+                <MenuItem Header="{x:Static loc2:Resource.EditMap_SaveMap}"
+                          Command="{Binding ExecuteSaveMapCommand}" IsEnabled="False"></MenuItem>
+                <!--<MenuItem Header="{x:Static loc2:Resource.EditMap_RefreshAllMap}"
+                          Command="{Binding ExecuteRefreshAllMapsCommand}"></MenuItem>-->
+                <MenuItem Header="{x:Static loc2:Resource.EditMap_ModifyMapInformation}"
+                          Command="{Binding ExecuteModifyMapInformationCommand}"></MenuItem>
+                <MenuItem Header="{x:Static loc2:Resource.EditMap_SelectMapLayer}" x:Uid="MenuItem_009" ItemsSource="{Binding SelectMenuIltemLayer}"
+                         ItemContainerStyle="{StaticResource MenuListStyle}" 
+                         InputGestureText="Alt+L" Name="MenuItems">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="{x:Static loc2:Resource.Menu_Title_GridManagement}">
+                <MenuItem Header="{x:Static loc2:Resource.EditMap_ModifySelectedMapItemsButton}"
+                          Command="{Binding ExecuteModifyMapItemCommand}"></MenuItem>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_SetWholeColumnAsRail}"
+                          Command="{Binding ExecuteSetWholeColumnAsRailCommand}"></MenuItem>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_SetCargowayAsSR}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_ConnectTwoGrids}"
+                          Command="{Binding ExecuteConnectTwoMapItemsCommand}" InputGestureText="Ctrl+Alt+C"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_DeleteSpecialConnection}"
+                          Command="{Binding ExecuteDeleteSpecialConnectionCommand}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_ConnectionManagement}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_MarkCargoway}"
+                          Command="{Binding ExecuteMarkCargowayCommand}"></MenuItem>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_InitializeBlankCargoways}"
+                          Command="{Binding ExecuteInitializeBlankCargowaysCommand}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_LoadCargoways}"
+                          Command="{Binding ExecuteLoadCargowaysCommand}"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static loc2:Resource.Menu_Title_ZoneManagement}">
+                <MenuItem Header="{x:Static loc2:Resource.Menu_ZoneManagement}"
+                          Command="{Binding ExecuteModifyStaticZonesCommand}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_AddZones}"
+                          Command="{Binding ExecuteAddZonesCommand}"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static loc2:Resource.Menu_Title_StorageManagement}">
+                <MenuItem Header="{x:Static loc2:Resource.Menu_SetZones}"
+                          Command="{Binding ExecuteEditSelectedStorageZonesCommand}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_AddOneUnitGoodsByHand}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_RetrieveOneUnitGoodsByHand}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_MoveOneUnitGoodsByHand}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_MoveOneUnitGoodsByAlg}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_SimulateStore}"/>
+                <MenuItem Header="{x:Static loc2:Resource.Menu_SimulateRetrieve}"/>
+            </MenuItem>
+
+            <!--WCF测试-->
+            <MenuItem Header="WCF服务测试">
+                <MenuItem Header="开启"
+                          Command="{Binding ExecuteWcfServiceTestStartCommand}"/>
+                <MenuItem Header="关闭"
+                          Command="{Binding ExecuteWcfServiceTestCloseCommand}"/>
+            </MenuItem>
+            <!--WCF测试-->
+        </Menu>
+        <ToolBar DockPanel.Dock="Top" Height="41">
+            <ComboBox  Name="Combox1" MinWidth="80" ItemsSource="{Binding SelectComboxList}"
+                       DisplayMemberPath="Text" SelectedIndex="{Binding SelectedLayer}" Margin="0,8,0,5" Height="23" Width="96">
+            </ComboBox>
+            <Slider x:Name="sli" HorizontalAlignment="Center"  TickPlacement="BottomRight" Margin="15,5,0,5"  Width="200"   IsSnapToTickEnabled="True"  IsSelectionRangeEnabled="True"   TickFrequency="20"  Minimum="0" Maximum="100" Value="0" ValueChanged="Sli_ValueChanged" Background="Gray">
+                <Slider.Effect>
+                    <DropShadowEffect/>
+                </Slider.Effect>
+            </Slider>
+            <TextBlock  Text="{Binding ElementName=sli,Path=Value}" Width="25" Margin="15,8,10,5"/>
+            <Button  x:Name="bu1" Style="{StaticResource BtnImageStyle1}" Margin="0,5,15,5" Click="Button_Click"  />
+            <Button  x:Name="bu2" Style="{StaticResource BtnImageStyle2}" Margin="0,5,0,5" Click="Button_Click_1"/>
+        </ToolBar>
+
+        <StatusBar DockPanel.Dock="Bottom" Margin="0,0,-0.5,0" >
+            <TextBlock Text="{Binding StatusString}"/>
+            <Button Content="{Binding WcfStatusString}" Command="{Binding ExecuteChangeWcfStatusCommand}"></Button>
+        </StatusBar>
+        <xceed:Zoombox x:Name="zoom" MouseWheel="Zoom_MouseWheel">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"></RowDefinition>
+                    <RowDefinition Height="50*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ScrollViewer Grid.Row="0" Grid.Column="1" Style="{StaticResource Column}" Content="{Binding .}"
+                       VerticalAlignment="Stretch" Name="ScrollViewer1" ScrollChanged="sv1_ScrollChanged" Margin="10,10,10,10"/>
+                <ScrollViewer Grid.Row="1" Grid.Column="0" Style="{StaticResource Row}" Content="{Binding .}" Margin="10,10,10,10"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Name="ScrollViewer3" ScrollChanged="sv3_ScrollChanged"/>
+                <!--点击右侧层树，仅需重新装载后台对应的数据即可。因此此处一个ScrollViewer即可。-->
+                <ScrollViewer Grid.Row="1" Grid.Column="1"   Style="{StaticResource GridBasedMapScrollLayer}" Content="{Binding .}"
+                              Margin="10,10,10,10" Name="ScrollViewer2" ScrollChanged="sv2_ScrollChanged" MouseWheel="Zoom_MouseWheel" />
+            </Grid>
+        </xceed:Zoombox>
+    </DockPanel>
+</Window>

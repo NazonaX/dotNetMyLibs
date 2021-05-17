@@ -1,0 +1,19 @@
+﻿<Window x:Class="wpfSimulation.Views.ConfirmDialogue"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfSimulation.Views"
+        xmlns:loc2="clr-namespace:Localiztion;assembly=Localiztion"
+        mc:Ignorable="d"
+        Title="ConfirmDialogue" Height="450" Width="800" FontSize="18">
+    <Grid>
+        <Label Content="{x:Static loc2:Resource.ConfirmModifyToRail}" 
+               HorizontalAlignment="Left" Margin="244,112,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button  Content="{x:Static loc2:Resource.BT_Confirm}" HorizontalAlignment="Left" Margin="315,264,0,0" IsDefault="True"
+                VerticalAlignment="Top" Width="100" Height="50" Command="{Binding ExecuteSaveCommand}">
+            
+        </Button>
+
+    </Grid>
+</Window>

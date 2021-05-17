@@ -1,0 +1,32 @@
+﻿<Window x:Class="wpfSimulation.Views.ModifySelectedStorageView2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfSimulation.Views"
+        xmlns:loc2="clr-namespace:Localiztion;assembly=Localiztion"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="ModifySelectedStorage" Height="227.312" Width="295.599"
+        ResizeMode="NoResize">
+
+
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="12,36,0,0" TextWrapping="Wrap" 
+                 Text="{Binding GoodName, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="12,94,0,0" TextWrapping="Wrap" 
+                 Text="{Binding GoodBatch, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="155,36,0,0" TextWrapping="Wrap" 
+                 Text="{Binding GoodModel, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="155,94,0,0" TextWrapping="Wrap" 
+                 Text="{Binding GoodCount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{x:Static loc2:Resource.ModifySelectedStorage_LB_GoodCount}" HorizontalAlignment="Left" Margin="153,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static loc2:Resource.ModifySelectedStorage_LB_GoodModel}" HorizontalAlignment="Left" Margin="153,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static loc2:Resource.ModifySelectedStorage_LB_GoodBatch}" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static loc2:Resource.ModifySelectedStorage_LB_GoodName}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button Content="{x:Static loc2:Resource.BT_Confirm}" HorizontalAlignment="Left" Margin="12,140,0,0" 
+                VerticalAlignment="Top" Width="263" Height="26" IsDefault="True"
+                Command="{Binding ExecuteModifySelectedStorageCommand}"/>
+
+    </Grid>
+</Window>

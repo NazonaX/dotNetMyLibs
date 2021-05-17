@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CargoWays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeftRailColumn" Type="int" Nullable="false" />
+          <Property Name="RightRailColumn" Type="int" Nullable="false" />
+          <Property Name="LeftIsRail" Type="bit" Nullable="false" />
+          <Property Name="RightIsRail" Type="bit" Nullable="false" />
+          <Property Name="CargoWayNumber" Type="char" MaxLength="128" Nullable="false" />
+          <Property Name="ZoneAt" Type="int" Nullable="false" />
+          <Property Name="LayerAt" Type="int" Nullable="false" />
+          <Property Name="ColAt" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CargoWaysLock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CargoWayId" Type="int" Nullable="false" />
+          <Property Name="LockStart" Type="int" Nullable="false" />
+          <Property Name="LockEnd" Type="int" Nullable="false" />
+          <Property Name="InPointMapItemId" Type="int" Nullable="false" />
+          <Property Name="RailColumn" Type="int" Nullable="false" />
+          <Property Name="LayerAt" Type="int" Nullable="false" />
+          <Property Name="RackAt" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="Model" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="Batch" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="BarCode" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="MapItemsId" Type="int" Nullable="false" />
+          <Property Name="CargoWayLockId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MapDictionary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MapKey" Type="char" MaxLength="64" Nullable="false" />
+          <Property Name="MapValue" Type="nchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MapItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MapItemLayer" Type="int" Nullable="false" />
+          <Property Name="MapItemRack" Type="int" Nullable="false" />
+          <Property Name="MapItemColumn" Type="int" Nullable="false" />
+          <Property Name="ZoneId" Type="int" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="CargowayId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RailColumn" Type="int" Nullable="false" />
+          <Property Name="RailLayer" Type="int" Nullable="false" />
+          <Property Name="RailNumber" Type="char" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpecialConnection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MapItemFrom" Type="int" Nullable="false" />
+          <Property Name="MapItemTo" Type="int" Nullable="false" />
+          <Property Name="TimeCost" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Types">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="Color" Type="nchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="Color" Type="nchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DevModelStoreContainer">
+          <EntitySet Name="CargoWays" EntityType="Self.CargoWays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CargoWaysLock" EntityType="Self.CargoWaysLock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MapDictionary" EntityType="Self.MapDictionary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MapItems" EntityType="Self.MapItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rails" EntityType="Self.Rails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SpecialConnection" EntityType="Self.SpecialConnection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zone" EntityType="Self.Zone" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MapDictionary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MapKey" Type="String" MaxLength="64" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MapValue" Type="String" MaxLength="128" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="true" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="7" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DevEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MapDictionary" EntityType="Self.MapDictionary" />
+          <EntitySet Name="Zone" EntityType="Self.Zone" />
+          <EntitySet Name="Goods" EntityType="DevModel.Goods" />
+          <EntitySet Name="MapItems" EntityType="DevModel.MapItems" />
+          <EntitySet Name="Types" EntityType="DevModel.Types" />
+          <EntitySet Name="SpecialConnection" EntityType="DevModel.SpecialConnection" />
+          <EntitySet Name="CargoWaysLock" EntityType="DevModel.CargoWaysLock" />
+          <EntitySet Name="CargoWays" EntityType="DevModel.CargoWays" />
+          <EntitySet Name="Rails" EntityType="DevModel.Rails" />
+        </EntityContainer>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BarCode" Type="String" MaxLength="128" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MapItemsId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="true" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="true" />
+          <Property Name="Batch" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="true" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="CargoWayLockId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MapItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MapItemLayer" Type="Int32" Nullable="false" />
+          <Property Name="MapItemRack" Type="Int32" Nullable="false" />
+          <Property Name="MapItemColumn" Type="Int32" Nullable="false" />
+          <Property Name="ZoneId" Type="Int32" Nullable="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="CargowayId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Types">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="true" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="7" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SpecialConnection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MapItemFrom" Type="Int32" Nullable="false" />
+          <Property Name="MapItemTo" Type="Int32" Nullable="false" />
+          <Property Name="TimeCost" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CargoWaysLock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LockStart" Type="Int32" Nullable="false" />
+          <Property Name="LockEnd" Type="Int32" Nullable="false" />
+          <Property Name="InPointMapItemId" Type="Int32" Nullable="false" />
+          <Property Name="CargoWayId" Type="Int32" Nullable="false" />
+          <Property Name="RailColumn" Type="Int32" Nullable="false" />
+          <Property Name="LayerAt" Type="Int32" Nullable="false" />
+          <Property Name="RackAt" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CargoWays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LeftRailColumn" Type="Int32" Nullable="false" />
+          <Property Name="RightRailColumn" Type="Int32" Nullable="false" />
+          <Property Name="LeftIsRail" Type="Boolean" Nullable="false" />
+          <Property Name="RightIsRail" Type="Boolean" Nullable="false" />
+          <Property Name="CargoWayNumber" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="false" />
+          <Property Name="ZoneAt" Type="Int32" Nullable="false" />
+          <Property Name="LayerAt" Type="Int32" Nullable="false" />
+          <Property Name="ColAt" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RailColumn" Type="Int32" Nullable="false" />
+          <Property Name="RailLayer" Type="Int32" Nullable="false" />
+          <Property Name="RailNumber" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DevModelStoreContainer" CdmEntityContainer="DevEntities">
+          <EntitySetMapping Name="MapDictionary">
+            <EntityTypeMapping TypeName="DevModel.MapDictionary">
+              <MappingFragment StoreEntitySet="MapDictionary">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MapKey" ColumnName="MapKey" />
+                <ScalarProperty Name="MapValue" ColumnName="MapValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zone">
+            <EntityTypeMapping TypeName="DevModel.Zone">
+              <MappingFragment StoreEntitySet="Zone">
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="DevModel.Goods">
+              <MappingFragment StoreEntitySet="Goods">
+                <ScalarProperty Name="CargoWayLockId" ColumnName="CargoWayLockId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Batch" ColumnName="Batch" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MapItemsId" ColumnName="MapItemsId" />
+                <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MapItems">
+            <EntityTypeMapping TypeName="DevModel.MapItems">
+              <MappingFragment StoreEntitySet="MapItems">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CargowayId" ColumnName="CargowayId" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="MapItemColumn" ColumnName="MapItemColumn" />
+                <ScalarProperty Name="MapItemRack" ColumnName="MapItemRack" />
+                <ScalarProperty Name="MapItemLayer" ColumnName="MapItemLayer" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Types">
+            <EntityTypeMapping TypeName="DevModel.Types">
+              <MappingFragment StoreEntitySet="Types">
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpecialConnection">
+            <EntityTypeMapping TypeName="DevModel.SpecialConnection">
+              <MappingFragment StoreEntitySet="SpecialConnection">
+                <ScalarProperty Name="TimeCost" ColumnName="TimeCost" />
+                <ScalarProperty Name="MapItemTo" ColumnName="MapItemTo" />
+                <ScalarProperty Name="MapItemFrom" ColumnName="MapItemFrom" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CargoWaysLock">
+            <EntityTypeMapping TypeName="DevModel.CargoWaysLock">
+              <MappingFragment StoreEntitySet="CargoWaysLock">
+                <ScalarProperty Name="RackAt" ColumnName="RackAt" />
+                <ScalarProperty Name="LayerAt" ColumnName="LayerAt" />
+                <ScalarProperty Name="RailColumn" ColumnName="RailColumn" />
+                <ScalarProperty Name="CargoWayId" ColumnName="CargoWayId" />
+                <ScalarProperty Name="InPointMapItemId" ColumnName="InPointMapItemId" />
+                <ScalarProperty Name="LockEnd" ColumnName="LockEnd" />
+                <ScalarProperty Name="LockStart" ColumnName="LockStart" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CargoWays">
+            <EntityTypeMapping TypeName="DevModel.CargoWays">
+              <MappingFragment StoreEntitySet="CargoWays">
+                <ScalarProperty Name="ColAt" ColumnName="ColAt" />
+                <ScalarProperty Name="LayerAt" ColumnName="LayerAt" />
+                <ScalarProperty Name="ZoneAt" ColumnName="ZoneAt" />
+                <ScalarProperty Name="CargoWayNumber" ColumnName="CargoWayNumber" />
+                <ScalarProperty Name="RightIsRail" ColumnName="RightIsRail" />
+                <ScalarProperty Name="LeftIsRail" ColumnName="LeftIsRail" />
+                <ScalarProperty Name="RightRailColumn" ColumnName="RightRailColumn" />
+                <ScalarProperty Name="LeftRailColumn" ColumnName="LeftRailColumn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rails">
+            <EntityTypeMapping TypeName="DevModel.Rails">
+              <MappingFragment StoreEntitySet="Rails">
+                <ScalarProperty Name="RailNumber" ColumnName="RailNumber" />
+                <ScalarProperty Name="RailLayer" ColumnName="RailLayer" />
+                <ScalarProperty Name="RailColumn" ColumnName="RailColumn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
